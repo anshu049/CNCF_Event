@@ -1,0 +1,52 @@
+# Nodeapp Deployment
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodeapp
+  labels:
+    app: nodeapp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nodeapp
+  template:
+    metadata:
+      labels:
+        app: nodeapp
+    spec:
+      imagePullSecrets:
+      - name: my-registry-key
+      containers:
+      - name: nodeapp
+        image: anshu049/nodeapp:latest
+        ports:
+        - containerPort: 3000
+        imagePullPolicy: Always
+        resources:
+          limits:
+            cpu: "500m"  
+          requests:
+            cpu: "200m"
+  
+---
+
+# Nodeapp Service
+apiVersion: v1
+kind: Service
+metadata:
+  name: nodeapp
+  labels:
+    app: nodeapp
+spec:
+  type: LoadBalancer
+  externalTrafficPolicy: Cluster  # Added externalTrafficPolicy for traffic handling
+  selector:
+    app: nodeapp
+  ports:
+  - name: service
+    protocol: TCP
+    port: 80  
+    targetPort: 3000
+
+
