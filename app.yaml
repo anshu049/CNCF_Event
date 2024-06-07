@@ -15,8 +15,6 @@ spec:
       labels:
         app: nodeapp
     spec:
-      imagePullSecrets:
-      - name: my-registry-key
       containers:
       - name: nodeapp
         image: anshu049/nodeapp:latest
