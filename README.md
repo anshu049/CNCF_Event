@@ -10,12 +10,18 @@ kubectl create ns App
 kubectl create ns Locust
 ```
 
-# Create HPA for app
+# Deploy App and create HPA
+```
+kubectl apply -f app.yaml
+```
 ```
 kubectl autoscale deployment nodeapp --cpu-percent=30 --min=1 --max=10
 ```
 
-# Create HPA for Locust
+# Deploy Locust and create HPA
+```
+kubect apply -f locust.yaml
+```
 ```
 kubectl autoscale deployment locust-worker --cpu-percent=70 --min=1 --max=10
 ```
