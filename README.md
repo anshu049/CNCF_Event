@@ -2,6 +2,13 @@
 ```
 kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
 ```
+# Create namespace for App and Locust
+```
+kubectl create ns App
+```
+```
+kubectl create ns Locust
+```
 
 # Create HPA for app
 ```
