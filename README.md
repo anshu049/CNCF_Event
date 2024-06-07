@@ -18,6 +18,9 @@ kubens app
 kubectl apply -f app.yaml
 ```
 ```
+kubectl port-forward svc/nodeapp 8080:80
+```
+```
 kubectl autoscale deployment nodeapp --cpu-percent=30 --min=1 --max=10
 ```
 
