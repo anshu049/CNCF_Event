@@ -24,12 +24,10 @@ kubectl port-forward svc/nodeapp 8080:80
 kubectl autoscale deployment nodeapp --cpu-percent=30 --min=1 --max=10
 ```
 
-# Deploy Locust and create HPA
+# Deploy Locust
 ```
 kubens locust
 ```
 ```
 kubect apply -f locust.yaml
-```
-kubectl autoscale deployment locust-worker --cpu-percent=70 --min=1 --max=10
 ```
