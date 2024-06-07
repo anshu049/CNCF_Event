@@ -1,6 +1,6 @@
 # Deploy metrics
 ```
-kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+kubectl apply -f metric.yaml
 ```
 # Create namespace for App and Locust
 ```
@@ -26,5 +26,5 @@ kubectl autoscale deployment nodeapp --cpu-percent=30 --min=1 --max=10
 kubens locust
 ```
 ```
-kubect apply -f locust.yaml
+kubectl apply -f locust.yaml
 ```
